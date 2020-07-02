@@ -20,11 +20,11 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         pip install setuptools wheel
     - name: Rebuild package
       run: |
-        python setup.py sdist bdist_wheel
+        python3 setup.py sdist bdist_wheel
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Apply python package update
