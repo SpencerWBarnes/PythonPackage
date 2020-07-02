@@ -1,0 +1,8 @@
+README.md
+setup.py
+PythonPackage/__init__.py
+PythonPackage/pythonPackage.py
+PythonPackage_SpencerWBarnes.egg-info/PKG-INFO
+PythonPackage_SpencerWBarnes.egg-info/SOURCES.txt
+PythonPackage_SpencerWBarnes.egg-info/dependency_links.txt
+PythonPackage_SpencerWBarnes.egg-info/top_level.txt
