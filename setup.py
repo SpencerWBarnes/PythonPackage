@@ -1,11 +1,16 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+# Use ReadMe as long description
+with open("README.md", "r") as readMe:
+    long_description = readMe.read()
+
+# Use PackageVersion to track versioning
+with open("packageVersion.txt", "r") as packageV:
+    packageVersion = packageV.read()
 
 setuptools.setup(
-    name="PythonPackage-SpencerWBarnes", # Replace with your own username
-    version="1.0",
+    name="PythonPackage-SpencerWBarnes",
+    version=packageVersion,
     author="Spencer Barnes",
     author_email="SWilliamBarnes@google.com",
     description="Package to give a greeting to the globe",

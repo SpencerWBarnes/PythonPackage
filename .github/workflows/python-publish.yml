@@ -1,6 +1,6 @@
 # This workflows will update Python Package so it can be installed using pip
 
-name: Upload Python Package
+name: Continuous Deployment of Python Package
 
 on:
   push:
@@ -22,6 +22,9 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install setuptools wheel
+    - name: Update packager version
+      run: |
+        python packageVersionUpdater.py
     - name: Clear old package
       run: |
         rm -r build
