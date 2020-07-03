@@ -22,7 +22,10 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install setuptools wheel
-    - name: Rebuild package
+    - name: Clear old package
+      run: |
+        rm -i build
+    - name: Build new package
       run: |
         python3 setup.py sdist bdist_wheel
     - uses: stefanzweifel/git-auto-commit-action@v4
