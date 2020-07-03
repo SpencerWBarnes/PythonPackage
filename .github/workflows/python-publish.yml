@@ -24,7 +24,7 @@ jobs:
         pip install setuptools wheel
     - name: Clear old package
       run: |
-        rm -i build
+        rm -r build
     - name: Build new package
       run: |
         python3 setup.py sdist bdist_wheel
