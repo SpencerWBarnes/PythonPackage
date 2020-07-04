@@ -3,6 +3,7 @@
 name: Continuous Deployment of Python Package
 
 on:
+  pull-request:
   push:
     branches: 
       - "master"
@@ -12,6 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # Install and setup Linux environment
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
@@ -22,6 +24,8 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install setuptools wheel
+
+    # Call custom python script to auto increment package version
     - name: Update packager version
       run: |
         python packageVersionUpdater.py
@@ -31,7 +35,8 @@ jobs:
     - name: Build new package
       run: |
         python3 setup.py sdist bdist_wheel
+
+    # Commit the rebuilt python package to the same branch
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Apply python package update
-        tagged_message: 'test'
