@@ -3,6 +3,10 @@ def HelloWorld():
   print('HelloWorld')
   return
 
+def Echo(message):
+  print(message)
+  return
+
 def Add(a, b):
   return a + b
 
