@@ -3,7 +3,7 @@
 name: Continuous Deployment of Python Package
 
 on:
-  pull-request:
+  pull_request:
   push:
     branches: 
       - "master"
@@ -16,6 +16,8 @@ jobs:
     # Install and setup Linux environment
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -40,3 +42,4 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Apply python package update
+        tagging_message: 'test'
